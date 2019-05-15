@@ -1,0 +1,13 @@
+.article{
+  &__content{ //section
+    padding-top:$text-gap;
+    padding-bottom:$text-gap;
+    @include break(small) {
+      padding-top:$text-gap-deep;
+      padding-bottom:$text-gap-deep;
+    }
+    &:nth-of-type(odd){
+      background-color:$gray90;
+    }
+  }
+}

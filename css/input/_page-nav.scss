@@ -2,6 +2,7 @@
     position:fixed;
     top:calc(#{$header-height} + 5px);
     $height:80px;
+    $heightmobile:60px;
     width:100%;
     background-color:$white;
     display:block;
@@ -15,7 +16,10 @@
         opacity:1;
     }
     &__inner{
-        height:$height;
+        height:$heightmobile;
+        @include break(small) {
+            height:$height;
+        }
         display:flex;
         justify-content: flex-start;
         align-items:center;
@@ -23,10 +27,9 @@
     }
     &__button{
         cursor:pointer;
-        height:$height;
+        height:100%;
         width:auto;
         @include align-center;
-        padding:3rem;
         &__icon{
             color:$black;
             width:10px;
@@ -36,9 +39,15 @@
     }
     &__dropdown{
         position:absolute;
-        top:$height;
+        top:$heightmobile;
+        left:0;
+        width:100%;
+        @include break(small) {
+          top:$height;
+        }
         background-color:$white;
         padding:3rem;
+        padding:$padding-sides;
         @include transition(opacity);
         &__outer{
 
@@ -54,10 +63,9 @@
     }
     &__backtop{
         cursor:pointer;
-        height:$height;
+        height:100%;
         width:auto;
         @include align-center;
-        padding:3rem;
         margin-left:auto;
         &__icon{
             transform:rotate(180deg);

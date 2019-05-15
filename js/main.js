@@ -17,7 +17,7 @@ const pagenavdropdown = document.querySelector('.page-nav__dropdown');
 
 const contentoffset = contentstart.getBoundingClientRect().top + pageYOffset;
 
-const visibility = (arg) => {
+const pagenavshow = (arg) => {
   if ( window.pageYOffset < arg ){
     pagenav.classList.remove('visible');
     pagenav.classList.add('hidden');
@@ -26,15 +26,20 @@ const visibility = (arg) => {
     pagenav.classList.add('visible');
   }
 }
+const pagenavdropdowntoggle = (arg) => {
+   pagenavtrigger.addEventListener('mouseenter', () => {
+    pagenavdropdown.classList.remove('hidden');
+    pagenavdropdown.classList.add('visible');
+  })
+  pagenavtrigger.addEventListener('mouseleave', () => {
+    pagenavdropdown.classList.remove('visible');
+    pagenavdropdown.classList.add('hidden');
+  })
+}
 
-pagenavtrigger.addEventListener('mouseenter', () => {
-  pagenavdropdown.classList.remove('hidden');
-  pagenavdropdown.classList.add('visible');
-})
-pagenavtrigger.addEventListener('mouseleave', () => {
-  pagenavdropdown.classList.remove('visible');
-  pagenavdropdown.classList.add('hidden');
-})
+if (pagenav){
+  pagenavdropdowntoggle();
+}
 
 // scrollbar porgress indicator -----------------------------
 
@@ -49,6 +54,8 @@ const scrollbar = () => {
 
 window.onscroll = () => {
   scrollbar();
-  visibility(contentoffset);
+  if (pagenav){
+    pagenavshow(contentoffset);
+  }
 }
 

@@ -6,11 +6,9 @@
   &__row{
     width:100%;
     padding-top:$text-gap-mobile;
-    @include grid(2/3);
     @include break(small) {
+      @include grid(2-3);
       padding-top:$text-gap;
-      flex-direction:row;
-      justify-content:space-between;
     }
     &:last-of-type{
       border-top:1px solid $white;

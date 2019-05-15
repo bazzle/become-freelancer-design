@@ -242,7 +242,6 @@ $titlelevels: (
 }
 
 @mixin text-tiny{
-    color:$black-lighten;
     font-size:$tiny;
 }
 
@@ -259,6 +258,12 @@ $titlelevels: (
     margin:0;
     margin-bottom:$text-gap;
     font-weight:$bold;
+  }
+  h2{
+    @include title(s2);
+  }
+  h3{
+    @include title(s3);
   }
   p, ol, ul{
     padding:0;
@@ -327,8 +332,8 @@ $border-accent-feint: rgba($color-secondary, 0.2) solid 1px;
 
 // simple grid layouts
 
-@mixin grid($howmanycols: 2/3, $gap: 1.5rem) {
-  @include break(medium) {
+@mixin grid($howmanycols: 2/3, $gap: 1.5rem, $break: medium) {
+  @include break($break) {
     display: grid;
     grid-auto-rows: auto;
     grid-gap: $gap;
@@ -338,15 +343,41 @@ $border-accent-feint: rgba($color-secondary, 0.2) solid 1px;
       grid-template-columns: 1fr 1fr 1fr;
     } @else if $howmanycols == 4 {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-    } @else if $howmanycols == 1/3 {
+    } @else if $howmanycols == 1-3 {
       grid-template-columns: 1fr 2fr;
-    } @else if $howmanycols == 2/3 {
+    } @else if $howmanycols == 2-3 {
       grid-template-columns: 2fr 1fr;
-    } @else if $howmanycols == 1/4 {
+    } @else if $howmanycols == 1-4 {
       grid-template-columns: 1fr 3fr;
-    } @else if $howmanycols == 3/4 {
+    } @else if $howmanycols == 3-4 {
       grid-template-columns: 3fr 1fr;
     }
+  }
+}
+
+// grid classes
+
+.grid{
+  &--2{
+    @include grid(2, 3rem);
+  }
+  &--1-2{
+    @include grid(1-2, 3rem);
+  }
+  &--3{
+    @include grid(3, 3rem);
+  }
+}
+
+.grid-tight{
+  &--2{
+    @include grid(2, 1.5rem);
+  }
+  &--1-2{
+    @include grid(1-2, 1.5rem);
+  }
+  &--3{
+    @include grid(3, 1.5rem);
   }
 }
 

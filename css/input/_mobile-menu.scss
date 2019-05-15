@@ -11,14 +11,15 @@
   transform:translateX(100%);
   border-top:$border-feint;
   opacity:0;
-  @include transition(transform, .2s, $move-snap-out);
+  @include transition(transform, .2s);
+  height:calc(100vh - #{$header-height});
   &.open{
-    @include transition(transform, .2s, $move-snap-out);
+    @include transition(transform, .2s);
     transform:translateX(0);
     opacity:1;
   }
   .close{
-    @include transition(transform, .2s, $move-snap-out);
+    @include transition(transform, .2s);
     transform:translateX(100%);
     opacity:0;
   }

@@ -1,0 +1,53 @@
+.guide-feature-horiz{
+    background-color:$white;
+    padding:$text-gap-tight;
+    @include text-tiny;
+    &__inner{
+        @include grid(2, $text-gap-tight, small);
+    }
+    &__tagline{
+        text-transform:uppercase;
+    }
+    &__title{
+        margin-bottom:$text-gap-tight;
+        &__tagline{
+            text-transform:uppercase;
+            display:block;
+            margin-bottom:$text-gap-tight;
+            font-size:.8em;
+        }
+        &__title{
+            font-weight:$bold;
+        }
+    }
+}
+
+
+
+
+.guide-feature-panel{
+    background-color:$white;
+    padding:$text-gap-deep 0;
+    &__inner{
+        @include grid(2, $text-gap, small);
+    }
+    &__tagline{
+        text-transform:uppercase;
+    }
+    &__title{
+        margin-bottom:$text-gap;
+        &__tagline{
+            text-transform:uppercase;
+            display:block;
+            margin-bottom:$text-gap-tight;
+            @include text-tiny;
+        }
+        &__title{
+            font-weight:$bold;
+            @include title(s2);
+        }
+    }
+    &__intro{
+        margin-bottom:$text-gap;
+    }
+}
