@@ -1,0 +1,9 @@
+.body-content{
+    @extend %text-body;
+    p, ol, ul{
+        max-width:1000px;
+    }
+    img{
+        margin-bottom:$text-gap;
+    }
+}

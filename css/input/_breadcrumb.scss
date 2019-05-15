@@ -1,0 +1,17 @@
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    font-size:$tiny;
+    &__item{
+        display:block;
+        padding:0 1em;
+        &:first-of-type{
+            padding-left:0;
+        }
+    }
+    &__arrow{
+        transform:rotate(-90deg);
+        width:10px;
+        height:10px;
+    }
+}

@@ -1,0 +1,58 @@
+// hero on pillar page
+
+.hero-pillar{
+  padding-top:$text-gap-mobile;
+  padding-bottom:$text-gap-mobile;
+  @include break(medium) {
+    padding-top:$text-gap;
+    padding-bottom:$text-gap;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    height:calc(100vh - #{$header-height});
+    min-height:900px;
+    max-height:1100px;
+  }
+  &__breadcrumb{
+    margin-bottom:$text-gap-mobile;
+    @include break(small) {
+      margin-bottom:$text-gap-tight;
+    }
+  }
+  &__title{
+      margin-bottom:$text-gap-mobile;
+      margin-bottom:$text-gap-tight;
+      @include title-display;
+  }
+  &__post-meta{
+    margin-bottom:$text-gap-mobile;
+    @include break(small) {
+      margin-bottom:$text-gap;
+    }
+  }
+  &__intro{
+    margin-bottom:$text-gap-mobile;
+    width:100%;
+    max-width:1000px;
+    @include break(small) {
+      margin-bottom:$text-gap-tight;
+    }
+  }
+  &__breadcrumb{
+    margin-bottom:$text-gap-mobile;
+    @include break(small) {
+      margin-bottom:$text-gap-tight;
+    }
+  }
+  &__contents-image{
+    margin-bottom:$text-gap-mobile;
+    @include break(small) {
+      margin-bottom:$text-gap-mobile;
+    }
+  }
+  &__cta{
+    .button{
+      margin-bottom:$text-gap-tight;
+    }
+  }
+}

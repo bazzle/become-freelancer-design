@@ -1,0 +1,21 @@
+.contents-image{
+  &__inner{
+    @include grid(2, 1.5rem);
+    background-color:$white;
+  }
+  &__contents{
+    padding:3rem;
+    &__title{
+      font-weight:$bold;
+      @include title(s3);
+      @extend %text-gap-tight;
+    }
+  }
+  &__image{
+    img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+  }
+}

@@ -1,32 +1,41 @@
 module.exports = function(grunt) {
 
-  require('load-grunt-tasks')(grunt);
+  require('jit-grunt')(grunt);
 
   grunt.initConfig({
-    postcss: {
-      dev: {
-        options: {
-          map: true, // inline sourcemaps
-          processors: [
-            require("precss")(), // deal with SASS gubbins
-            require("autoprefixer")({ browsers: "last 2 versions" }) // add vendor prefixes
-          ]
-        },
-        src: "css/input/style.css",
-        dest: "css/style.css"
+    sass: {
+      options: {
+        style: 'expanded'
       },
+      files: {
+        src: "css/input/main.scss",
+        dest: "css/style.css"
+      }
+    },
+    postcss: {
       prod: {
         options: {
+          parser: require('postcss-scss'),
           processors: [
             require("pixrem")(), // add fallbacks for rem units
             require("autoprefixer")({ browsers: "last 2 versions" }), // add vendor prefixes
             require("cssnano")(), // minify the result
-            require("precss")() // deal with SASS gubbins
           ]
         },
-        src: "css/input/style.css",
+        src: "css/style.css",
         dest: "dest/css/style.css"
       }
+    },
+    svgstore: {
+      options: {
+        prefix : 'icon-',
+        includedemo: true
+      },
+      default: {
+        files: {
+          'assets/svg/icons.svg': ['assets/svg/input/*.svg'],
+        }
+      },
     },
     uglify: {
       files: {
@@ -58,17 +67,18 @@ module.exports = function(grunt) {
     },
     browserSync: {
       bsFiles: {
-        src: ["css/style.css", "index.html"]
+        src: ["css/style.css", "*.html", "js/*.js"]
       },
       options: {
         watchTask: true,
-        proxy: "http://baf-design:8888"
+        proxy: "baf-design:8888",
+        notify: false
       }
     },
     watch: {
       css: {
-        files: ["css/input/*.css"],
-        tasks: ["postcss:dev"]
+        files: ["css/input/*.scss"],
+        tasks: ["sass"]
       }
     }
   });

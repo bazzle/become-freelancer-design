@@ -1,0 +1,70 @@
+.page-nav{
+    position:fixed;
+    top:calc(#{$header-height} + 5px);
+    $height:80px;
+    width:100%;
+    background-color:$white;
+    display:block;
+    @include transition(opacity);
+    &.hidden{
+        visibility:hidden;
+        opacity:0;
+    }
+    &.visible{
+        visibility:visible;
+        opacity:1;
+    }
+    &__inner{
+        height:$height;
+        display:flex;
+        justify-content: flex-start;
+        align-items:center;
+        position:relative;
+    }
+    &__button{
+        cursor:pointer;
+        height:$height;
+        width:auto;
+        @include align-center;
+        padding:3rem;
+        &__icon{
+            color:$black;
+            width:10px;
+            height:10px;
+            margin:1rem;
+        }
+    }
+    &__dropdown{
+        position:absolute;
+        top:$height;
+        background-color:$white;
+        padding:3rem;
+        @include transition(opacity);
+        &__outer{
+
+        }
+        &.hidden{
+            visibility:hidden;
+            opacity:0;
+        }
+        &.visible{
+            visibility:visible;
+            opacity:1;
+        }
+    }
+    &__backtop{
+        cursor:pointer;
+        height:$height;
+        width:auto;
+        @include align-center;
+        padding:3rem;
+        margin-left:auto;
+        &__icon{
+            transform:rotate(180deg);
+            color:$black;
+            width:10px;
+            height:10px;
+            margin:1rem;
+        }
+    }
+}

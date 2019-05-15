@@ -1,0 +1,17 @@
+.pillar-content{
+  &__section{ //section
+    padding-top:$text-gap;
+    padding-bottom:$text-gap;
+    @include break(small) {
+      padding-top:$text-gap-deep;
+      padding-bottom:$text-gap-deep;
+    }
+    &:nth-of-type(odd){
+      background-color:$gray90;
+    }
+  }
+  &__title{
+    @include title(s2);
+    @extend %text-gap;
+  }
+}
