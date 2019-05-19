@@ -15,7 +15,6 @@ module.exports = function(grunt) {
     postcss: {
       prod: {
         options: {
-          parser: require('postcss-scss'),
           processors: [
             require("pixrem")(), // add fallbacks for rem units
             require("autoprefixer")({ browsers: "last 2 versions" }), // add vendor prefixes
@@ -37,20 +36,27 @@ module.exports = function(grunt) {
         }
       },
     },
+    /* deprecated need to find a replacement for this that compiles es6
     uglify: {
       files: {
-        src: "js/scripts.js",
+        src: "js/main.js",
         dest: "dest/js/scripts.js"
       }
     },
+    */
     htmlmin: {
-      options: {
-        removeComments: true,
-        collapseWhitespace: true
-      },
-      files: {
-        src: "index.html",
-        dest: "dest/index.html"
+      default: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: [
+          {
+            expand: true,
+            src: '*.html',
+            dest: 'dest/'
+          }
+        ]
       }
     },
     imagemin: {
@@ -85,7 +91,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask("dev", ["browserSync", "watch"]);
   grunt.registerTask("build", [
-    "uglify",
     "htmlmin",
     "imagemin",
     "postcss:prod"
