@@ -1,0 +1,220 @@
+// Project specific mixins and variables
+
+// layout ==============================================
+
+$site-width:1400px;
+$padding-sides:5vw;
+
+// standard margin
+
+$margin-std:1.5rem;
+
+// colors ==============================================
+
+$color-primary:$gray40;
+$color-secondary:$gray60;
+$color-accent:gold;
+
+// font loading
+//@import url();
+
+// typography ==============================================
+
+$font-brand:sans-serif;
+$font-std:sans-serif;
+$font-display:sans-serif;
+
+// font-size;
+$font-size-base:62.5%;
+$font-size-mobile:1.6rem;
+$font-size-std:1.8rem;
+
+// font weights
+$thin:400;
+$std:400;
+$bold:600;
+$extrabold:600;
+
+// font sizes
+$tiny:.8em;
+
+// line heights
+$line-height:1.7;
+$line-height--tight:1;
+
+// text margins
+$text-gap:4rem;
+$text-gap-mobile:2rem;
+$text-gap-deep:6rem;
+$text-gap-tight:2rem;
+
+// title sizes 
+$titlelevels: (
+  s1:6rem,
+  s2:3rem,
+  s3:2rem,
+);
+
+// underline
+@mixin text-underline($color){
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+    text-decoration-color: $color;
+}
+
+// text display
+@mixin text-display($font-size){
+  font-family:$font-display;
+  font-weight:$bold;
+  font-size:$font-size;
+  line-height: 1.4;
+  p{
+    line-height: 1.4;
+  }
+}
+
+// title display
+@mixin title-display{
+    font-size:4rem;
+    font-weight:$bold;
+    @include break(small) {
+      font-size:6rem;
+    }
+    @include break(medium) {
+      font-size:8rem;
+    }
+}
+
+@mixin text-leadin($font-size){
+  font-family:$font-display;
+  font-weight:$std;
+  font-size:$font-size;
+  line-height: 1.4;
+  p{
+    line-height: 1.4;
+  }
+}
+
+@mixin text-tiny{
+  font-size:$tiny;
+}
+
+// text body
+%text-body{
+  font-family:$font-std;
+  line-height:$line-height;
+  strong{
+    font-weight:$bold;
+  }
+  h1, h2, h3, h4, h5{
+    color:$black;
+    padding:0;
+    margin:0;
+    margin-bottom:$text-gap;
+    font-weight:$bold;
+  }
+  h2{
+    @include title(s2);
+  }
+  h3{
+    @include title(s3);
+  }
+  p, ol, ul{
+    padding:0;
+    margin:0;
+    margin-bottom:$text-gap;
+  }
+  ul{
+    padding-left:1em;
+    box-sizing:border-box;
+  }
+  li{
+    width:calc(100% - 1em);
+    list-style:none;
+    position:relative;
+    &:before{
+      content:'\25A0';
+      color:$color-secondary;
+      margin-right:.5em;
+    }
+  }
+  & > *:last-child{
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+}
+
+// header ==============================================
+
+$header-height:80px;
+$header-height-mobile:80px;
+
+
+// syled links =========================================
+
+@mixin link-styled{
+  @include text-underline($color-secondary);
+  font-weight:$bold;
+}
+
+// misc styles =========================================
+
+// link color
+$link-color:$black;
+
+// text shadow
+$text-shadow-std: 1px 1px 2px $black;
+
+// raised item shadow
+$shadow:3px 3px 3px rgba(93, 93, 93, 0.1);
+
+// borders
+
+$border-feint: rgba($black, 0.2) solid 1px;
+$border-accent: $color-secondary solid 2px;
+$border-accent-feint: rgba($color-secondary, 0.2) solid 1px;
+
+
+// html ================================================
+
+html {
+  font-family: $font-brand;
+  font-size:$font-size-base;
+}
+
+// body
+body {
+  font-size:$font-size-mobile;
+  @include break(small) {
+    font-size:$font-size-std;
+  }
+  line-height:$line-height;
+  color:$black;
+}
+
+// header
+.header{
+  position:fixed;
+  height:$header-height-mobile;
+  @include break(small) {
+      height:$header-height;
+  }
+}
+
+// main
+.main{
+  position:relative;
+  padding-top:$header-height-mobile;
+  @include break(small) {
+      padding-top:$header-height;
+  }
+}
+
+
+
+
+
+
+
+
+

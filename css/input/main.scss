@@ -1,4 +1,8 @@
+@import '_reset';
+@import '_mixins-variables';
+@import '_project-settings';
 @import '_global';
+
 // components
 @import '_header';
 @import '_mobile-menu';

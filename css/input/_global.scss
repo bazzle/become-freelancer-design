@@ -1,124 +1,5 @@
-// RESET ====================================================================================================
-
-
-html, body{
-  padding:0;
-  margin:0;
-  overflow-x:hidden;
-}
-
-// To make every element border-box, and remove margin/padding
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-button{
-  border:0;
-}
-
-*, *:before, *:after{
-  box-sizing:border-box;
-}
-
-svg{
-  fill:currentColor;
-}
-
-img{
-  margin:0;
-  padding:0;
-  display:block;
-  max-width:100%;
-  height:auto;
-}
-
-
-// MIXINS AND VARIABLES ====================================================================================================
-
-
 // paths
 $path-images: "../assets/images";
-
-// layout
-$site-width:1400px;
-$padding-sides:5vw;
-// standard margin
-$margin-std:1.5rem;
-
-// Breakpoints
-$breakpoints: (
-    small: 560px,
-    tablet: 700px,
-    medium: 960px,
-    large: 1280px,
-    xlarge: 1440px,
-);
-
-// breakpoint mixins
-@mixin break($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
-            @content;
-        }
-    }
-}
-
-// Standard greyscale: number = brightness (HSB)
-$gray95: #F2F2F2;
-$gray90: #E6E6E6;
-$gray80: #CCCCCC;
-$gray70: #B3B3B3;
-$gray60: #999999;
-$gray50: #808080;
-$gray40: #666666;
-$gray30: #4D4D4D;
-$gray20: #333333;
-$gray10: #262626;
-
-// Social colors
-$dribbble: #EA4C89;
-$facebook: #3B5999;
-$flickr: #FF0084;
-$googleplus: #DD4B39;
-$instagram: #E4405F;
-$linkedin: #0077B5;
-$pinterest: #BD081C;
-$snapchat: #FFFC00;
-$soundcloud: #ff3300;
-$tumblr: #34465D;
-$twitter: #55ACEE;
-$vimeo: #1AB7EA;
-$whatsapp: #25D366;
-$youtube: #CD201F;
-
-// colors
-$color-dark-gray:#4B4B4B;
-$black:#000000;
-$white: #ffffff;
-$off-white: #f9f9f9;
-$darken-overlay:rgba(black, .05);
-$white-darken:darken($white, 5);
-$black-lighten:lighten($black, 20);
-
-// project specific colors
-$color-primary:$gray40;
-$color-secondary:$gray60;
-$color-accent:gold;
-
-// lines
-$line: 1px solid $black;
-$line-feint:1px solid $black-lighten;
-
-// font loading
-//@import url();
-
-
-
 
 // ANIMATION ====================================================================================================
 
@@ -139,33 +20,7 @@ a{
   @include transition(color, .5s);
 }
 
-
 // TYPOGRAPHY ====================================================================================================
-
-// fonts
-$font-brand:sans-serif;
-$font-std:sans-serif;
-$font-display:sans-serif;
-
-// font-size;
-$font-size-base:62.5%;
-$font-size-mobile:1.6rem;
-$font-size-std:1.8rem;
-
-// font weights
-$thin:400;
-$std:400;
-$bold:600;
-$extrabold:600;
-
-// font sizes
-$tiny:.8em;
-
-// text margins
-$text-gap:4rem;
-$text-gap-mobile:2rem;
-$text-gap-deep:6rem;
-$text-gap-tight:2rem;
 
 %text-gap{
   margin-bottom:$text-gap-mobile;
@@ -181,133 +36,8 @@ $text-gap-tight:2rem;
   }
 }
 
-// line height
-$line-height:1.7;
-$line-height--tight:1;
-
-// underline
-@mixin text-underline($color){
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-    text-decoration-color: $color;
-}
-
-// text display
-@mixin text-display($font-size){
-  font-family:$font-display;
-  font-weight:$bold;
-  font-size:$font-size;
-  line-height: 1.4;
-  p{
-    line-height: 1.4;
-  }
-}
-
-// titles
-$titlelevels: (
-  s1:6rem,
-  s2:3rem,
-  s3:2rem,
-);
-
-@mixin title-display{
-    font-size:4rem;
-    font-weight:$bold;
-    @include break(small) {
-      font-size:6rem;
-    }
-    @include break(medium) {
-      font-size:8rem;
-    }
-}
-
-@mixin title($titlelevel){
-  font-weight:$bold;
-  @if map-has-key($titlelevels, $titlelevel) {
-    font-size:map-get($titlelevels, $titlelevel);
-    @include break(small) {
-      font-size:calc(#{map-get($titlelevels, $titlelevel)} + 50%);
-    }
-  }
-}
-
-@mixin text-leadin($font-size){
-  font-family:$font-display;
-  font-weight:$std;
-  font-size:$font-size;
-  line-height: 1.4;
-  p{
-    line-height: 1.4;
-  }
-}
-
-@mixin text-tiny{
-    font-size:$tiny;
-}
-
-// text body
-%text-body{
-  font-family:$font-std;
-  line-height:$line-height;
-  strong{
-    font-weight:$bold;
-  }
-  h1, h2, h3, h4, h5{
-    color:$black;
-    padding:0;
-    margin:0;
-    margin-bottom:$text-gap;
-    font-weight:$bold;
-  }
-  h2{
-    @include title(s2);
-  }
-  h3{
-    @include title(s3);
-  }
-  p, ol, ul{
-    padding:0;
-    margin:0;
-    margin-bottom:$text-gap;
-  }
-  ul{
-    padding-left:1em;
-    box-sizing:border-box;
-  }
-  li{
-    width:calc(100% - 1em);
-    list-style:none;
-    position:relative;
-    &:before{
-      content:'\25A0';
-      color:$color-secondary;
-      margin-right:.5em;
-    }
-  }
-  & > *:last-child{
-    margin-bottom:0;
-    padding-bottom:0;
-  }
-}
-
-// link color
-$link-color:$black;
-
-// text shadow
-$text-shadow-std: 1px 1px 2px $black;
-
-// raised item shadow
-$shadow:3px 3px 3px rgba(93, 93, 93, 0.1);
-
-// borders
-
-$border-feint: rgba($black, 0.2) solid 1px;
-$border-accent: $color-secondary solid 2px;
-$border-accent-feint: rgba($color-secondary, 0.2) solid 1px;
-
 
 // LAYOUT AND GRID ====================================================================================================
-
 
 @mixin panel{
   width:100vw;
@@ -320,7 +50,6 @@ $border-accent-feint: rgba($color-secondary, 0.2) solid 1px;
   max-width:$site-width;
   padding:0 $padding-sides;
 }
-
 
 .panel{
   @include panel;
@@ -381,25 +110,12 @@ $border-accent-feint: rgba($color-secondary, 0.2) solid 1px;
   }
 }
 
-
-// header
-$header-height:80px;
-$header-height-mobile:80px;
-
 // Aspect ratios
 $aspect_1-1: 100%;
 $aspect_16-9: 56.25%;
 $aspect_4-3: 75%;
 $aspect_3-2: 66.66%;
 $aspect_8-5: 62.5%;
-
-// syled links
-@mixin link-styled{
-  @include text-underline($color-secondary);
-  font-weight:$bold;
-}
-
-
 
 // Align
 @mixin align-left{
@@ -457,46 +173,6 @@ $aspect_8-5: 62.5%;
 
 // GLOBAL ELEMENTS AND CLASSES =====================================================================================
 
-// html
-html {
-  font-family: $font-brand;
-  font-size:$font-size-base;
-}
-
-// body
-body {
-  font-size:$font-size-mobile;
-  @include break(small) {
-    font-size:$font-size-std;
-  }
-  line-height:$line-height;
-  color:$black;
-}
-
-// header
-.header{
-  position:fixed;
-  height:$header-height-mobile;
-  @include break(small) {
-      height:$header-height;
-  }
-}
-
-// main
-.main{
-  position:relative;
-  padding-top:$header-height-mobile;
-  @include break(small) {
-      padding-top:$header-height;
-  }
-}
-
-// resets
-input, textarea, select, button{
-  font-size:inherit;
-}
-
-// resets
 p, ul, ol{
   padding:0;
   margin:0;

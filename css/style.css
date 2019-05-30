@@ -32,28 +32,8 @@ img {
   height: auto;
 }
 
-a {
-  transition-property: color;
-  transition-duration: 0.5s;
-  transition-timing-function: linear;
-}
-
-.pillar-content__title, .footer__links, .footer__notice, .footer__social-media {
-  margin-bottom: 2rem;
-}
-@media screen and (min-width: 560px) {
-  .pillar-content__title, .footer__links, .footer__notice, .footer__social-media {
-    margin-bottom: 4rem;
-  }
-}
-
-.contents-image__contents__title, .footer__links__title {
-  margin-bottom: 2rem;
-}
-@media screen and (min-width: 560px) {
-  .contents-image__contents__title, .footer__links__title {
-    margin-bottom: 2rem;
-  }
+input, textarea, select, button {
+  font-size: inherit;
 }
 
 .body-content {
@@ -110,6 +90,66 @@ a {
 .body-content > *:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #000000;
+}
+@media screen and (min-width: 560px) {
+  body {
+    font-size: 1.8rem;
+  }
+}
+
+.header {
+  position: fixed;
+  height: 80px;
+}
+@media screen and (min-width: 560px) {
+  .header {
+    height: 80px;
+  }
+}
+
+.main {
+  position: relative;
+  padding-top: 80px;
+}
+@media screen and (min-width: 560px) {
+  .main {
+    padding-top: 80px;
+  }
+}
+
+a {
+  transition-property: color;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+
+.pillar-content__title, .footer__links, .footer__notice, .footer__social-media {
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 560px) {
+  .pillar-content__title, .footer__links, .footer__notice, .footer__social-media {
+    margin-bottom: 4rem;
+  }
+}
+
+.contents-image__contents__title, .footer__links__title {
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 560px) {
+  .contents-image__contents__title, .footer__links__title {
+    margin-bottom: 2rem;
+  }
 }
 
 .panel {
@@ -172,46 +212,6 @@ a {
     grid-gap: 1.5rem;
     grid-template-columns: 1fr 1fr 1fr;
   }
-}
-
-html {
-  font-family: sans-serif;
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  line-height: 1.7;
-  color: #000000;
-}
-@media screen and (min-width: 560px) {
-  body {
-    font-size: 1.8rem;
-  }
-}
-
-.header {
-  position: fixed;
-  height: 80px;
-}
-@media screen and (min-width: 560px) {
-  .header {
-    height: 80px;
-  }
-}
-
-.main {
-  position: relative;
-  padding-top: 80px;
-}
-@media screen and (min-width: 560px) {
-  .main {
-    padding-top: 80px;
-  }
-}
-
-input, textarea, select, button {
-  font-size: inherit;
 }
 
 p, ul, ol {
